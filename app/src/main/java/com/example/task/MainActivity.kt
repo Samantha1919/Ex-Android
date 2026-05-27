@@ -1,16 +1,15 @@
 package com.example.task
-
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,12 +30,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             TaskTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Column(
+                    Surface (
                         modifier = Modifier.padding(innerPadding).fillMaxSize(),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        CompletedImage()
                         Information(
                             title = "All tasks completed",
                             subtitle = "Nice work",
@@ -50,26 +46,23 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun CompletedImage() {
-    val image = painterResource(R.drawable.check)
-    Image(
-        painter = image,
-        contentDescription = null,
-        contentScale = ContentScale.Fit,
-    )
-}
+
 
 @Composable
 fun Information(title: String, subtitle: String, modifier: Modifier = Modifier) {
     Column( verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally, modifier = modifier.fillMaxSize()) {
+        val image = painterResource(R.drawable.check)
+        Image(
+            painter = image,
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+        )
         Text(
             text = title,
             modifier = modifier.padding(top = 24.dp, bottom = 8.dp),
             fontWeight = Bold,
             textAlign = TextAlign.Center, // se centre mtn que jai mis le v et h A sur la Column
-
             )
         Text(
             text = subtitle,
