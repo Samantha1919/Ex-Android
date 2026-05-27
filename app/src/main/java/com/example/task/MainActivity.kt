@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
             TaskTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Information(
-                        title = "test", subtitle = "nice work",
+                        title = "All tasks completed", subtitle = "Nice work !",
                          modifier = EmptyModifier.padding(innerPadding) // on apllique juste a modifier tu faisais ca avant mais la tu dois juste preciser le nom vu quon a aps mis dimage, ca applique juste innerPadding quon met en param depuis le scaffold
                     )
                 }
@@ -101,7 +101,7 @@ fun Information(
 @Composable
 fun Preview() {
     TaskTheme {
-        Information(subtitle = "hello", image = painterResource(R.drawable.chat))
+        Information(subtitle = "cutes cats", image = painterResource(R.drawable.chat))
     }
 }
 
@@ -109,6 +109,6 @@ fun Preview() {
 @Composable
 fun Preview2() {
     TaskTheme {
-        Information(title = "test", subtitle = "nice work")
+        Information(title = "All tasks completed", subtitle = "Nice work !")
     }
 }
